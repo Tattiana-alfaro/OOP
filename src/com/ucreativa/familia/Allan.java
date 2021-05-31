@@ -11,7 +11,6 @@ public class Allan {
     {
         this.age = age;
         this.hobby = hobby;
-        System.out.println(greetings);
     }
 
     public int getAge() {
