@@ -1,8 +1,9 @@
 package com.ucreativa.familia;
 
-public class Tattiana {
 
-    public Tattiana(){
-        System.out.println("Hola! mi nombre es: Tattiana Alfaro");
+public class Tattiana  extends Allan{
+
+    public Tattiana(String saludo, int age, String hobby){
+        super(saludo, age, hobby);
     }
 }

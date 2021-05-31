@@ -7,11 +7,11 @@ public class Allan {
     private String hobby;
     private String name;
 
-    public  Allan (String greetings)
+    public  Allan (String greetings, int age, String hobby)
     {
+        this.age = age;
+        this.hobby = hobby;
         System.out.println(greetings);
-        setAge(50);
-        setHobby("Farmer");
     }
 
     public int getAge() {
@@ -37,7 +37,4 @@ public class Allan {
     {
         return age;
     }
-
-
-
 }
