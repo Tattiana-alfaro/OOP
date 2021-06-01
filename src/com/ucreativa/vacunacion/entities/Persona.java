@@ -1,4 +1,4 @@
-package com.ucreativa.vacunacion;
+package com.ucreativa.vacunacion.entities;
 
 public class Persona {
     private String nombre;
@@ -6,7 +6,7 @@ public class Persona {
     private int edad;
     private Boolean riesgo;
 
-    public Persona(String nombre, String cedula, int edad, Boolean riesgo) {
+    public Persona(String nombre, String cedula, int edad, boolean riesgo) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.edad = edad;
