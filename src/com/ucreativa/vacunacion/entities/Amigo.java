@@ -19,4 +19,9 @@ public class Amigo extends Persona{
     public String getFacebook() {
         return facebook;
     }
+
+    @Override
+    public String toString() {
+        return super.getNombre();
+    }
 }
