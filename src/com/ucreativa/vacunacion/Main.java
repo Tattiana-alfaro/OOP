@@ -1,23 +1,19 @@
 package com.ucreativa.vacunacion;
-import com.ucreativa.vacunacion.entities.Amigo;
-import com.ucreativa.vacunacion.entities.Familiar;
-import com.ucreativa.vacunacion.entities.Persona;
+
 import com.ucreativa.vacunacion.repositories.FileRepository;
-import com.ucreativa.vacunacion.repositories.InMemoryRepository;
-import com.ucreativa.vacunacion.repositories.Repository;
+import com.ucreativa.vacunacion.services.BitacoraService;
 
-import java.util.*;
-
-import static java.lang.Integer.parseInt;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         //InMemoryRepository repo = new InMemoryRepository();
-        Repository repo = new FileRepository();
-        String nombre, cedula, edad, riesgo, isAmigo, relacion, facebook, parentesco, marca, print;
-        Persona persona;
+        //Repository repo = new FileRepository();
+        BitacoraService service = new BitacoraService(new FileRepository());
+        String nombre, cedula, edad, riesgo, isAmigo, relacion = null, facebook = null, parentesco = null, marca, print;
 
         while (true) {
             System.out.println("Nombre: ");
@@ -41,21 +37,20 @@ public class Main {
 
                 System.out.println("Facebook: ");
                 facebook = in.nextLine();
-                persona = new Amigo(nombre, cedula, parseInt(edad), riesgo.equals("S"), relacion, facebook);
             } else {
                 System.out.println("Parentesco: ");
                 parentesco = in.nextLine();
-                persona = new Familiar(nombre, cedula, parseInt(edad), riesgo.equals("S"), parentesco);
             }
 
             System.out.println("Marca: ");
             marca = in.nextLine();
 
-            repo.save(persona, marca, new Date());
+            service.save(nombre, cedula, edad, riesgo, isAmigo, relacion, 
+                    facebook, parentesco, marca);
             System.out.println("Quiere Imprimir Lista(S)? ");
             print = in.nextLine();
             if (print.equals("S")){
-                for (String item : repo.get())
+                for (String item : service.get())
                 {
                     System.out.println(item);
 
