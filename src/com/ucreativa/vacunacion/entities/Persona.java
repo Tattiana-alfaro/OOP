@@ -4,7 +4,7 @@ public abstract class Persona {
     private String nombre;
     private String cedula;
     private int edad;
-    private Boolean riesgo;
+    private boolean riesgo;
 
     public Persona(String nombre, String cedula, int edad, boolean riesgo) {
         this.nombre = nombre;
@@ -12,32 +12,32 @@ public abstract class Persona {
         this.edad = edad;
         this.riesgo = riesgo;
     }
+
     public abstract String toString();
 
-    public String getNombre()
-    {
-        return nombre;
-    }
-
-    public String getCedula()
-    {
-        return cedula;
-    }
-
+    // <editor-fold desc="Metodos">
     public int getEdad() {
         return edad;
     }
 
-    public Boolean getRiesgo() {
+    public void addYear() {
+        this.edad = this.edad++;
+    }
+
+    public boolean isRiesgo() {
         return riesgo;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public void setRiesgo(Boolean riesgo) {
+    public void setRiesgo(boolean riesgo) {
         this.riesgo = riesgo;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+    // </editor-fold>
 }

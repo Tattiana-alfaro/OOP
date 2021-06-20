@@ -8,12 +8,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FileRepository implements  Repository{
+public class FileRepository implements Repository{
+
     private final String FILE_PATH = "db.txt";
 
-
     @Override
-    public void save(Persona persona, String marca, Date fecha) {
+    public void save(Persona persona, String marca, Date fecha)  {
+
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
         String text = persona.getNombre() + " " + marca + " " + format.format(fecha) + "\n";

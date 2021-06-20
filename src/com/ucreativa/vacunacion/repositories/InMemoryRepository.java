@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class InMemoryRepository implements Repository{
-    private List<BitacoraVacuna> db;
+public class InMemoryRepository implements Repository {
+
+    private final List<BitacoraVacuna> db;
 
     public InMemoryRepository(){
         this.db = new ArrayList<>();
@@ -21,12 +22,14 @@ public class InMemoryRepository implements Repository{
 
     public List<String> get() {
         List<String> lines = new ArrayList<>();
-        SimpleDateFormat format = new SimpleDateFormat("ss-MM-yyy hh:mm:ss");
-        for (BitacoraVacuna item : db) {
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+        for (BitacoraVacuna item : db){
             lines.add(item.getPersona().getNombre()
                     + " - " + item.getMarca()
                     + " - " + format.format(item.getFecha()));
         }
         return lines;
     }
+
+
 }
